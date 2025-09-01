@@ -83,9 +83,9 @@ The VoiceMaker plugin includes a comprehensive set of voices across multiple lan
 
 ## Usage Tips
 
-1. Use [GetAvailableVoices](subsystem.md#get-available-voices) to programmatically get all available voice names
-2. Use [IsVoiceAvailable](subsystem.md#is-voice-available) to validate voice names before generation
-3. Use [GetVoiceInformation](subsystem.md#get-voice-information) to get detailed information about specific voices
+1. Use [Get Available Voices](subsystem.md#get-available-voices) to programmatically get all available voice names
+2. Use [Is Voice Available](subsystem.md#is-voice-available) to validate voice names before generation
+3. Use [Get Voice Information](subsystem.md#get-voice-information) to get detailed information about specific voices
 
 > [!NOTE]
 > You can also use [Get Available Voices Info](subsystem.md#get-available-voices-info) to directly get detailed information for all voices!

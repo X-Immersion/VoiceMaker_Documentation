@@ -21,6 +21,8 @@
 
 See [Init](subsystem.md#init) subsystem node.
 
+<br/>
+
 ## Deinitialize VoiceMaker Subsystem
 
 **C++ Function**: `static void UVoiceMakerBPLibrary::DeinitializeSubsystem(FOnInitializeComplete OnDeinitializeComplete)`
@@ -28,6 +30,8 @@ See [Init](subsystem.md#init) subsystem node.
 ![Deinitialize VoiceMaker Subsystem](res/library_deinit.png)
 
 See [Deinitialize](subsystem.md#deinitialize) subsystem node.
+
+<br/>
 
 ## Is VoiceMaker Subsystem Initialized
 
@@ -37,6 +41,8 @@ See [Deinitialize](subsystem.md#deinitialize) subsystem node.
 
 See [Is Initialized](subsystem.md#is-initialized) subsystem node.
 
+<br/>
+
 ## Generate Audio Data
 
 **C++ Function**: `static void GenerateAudioData(const FString& Text, const FString& VoiceName, float Speed, const FString& Language, FOnAudioDataGeneratedCallback OnComplete, const FOnErrorOccured& OnErrorOccured)`
@@ -44,6 +50,8 @@ See [Is Initialized](subsystem.md#is-initialized) subsystem node.
 ![Generate Audio Data](res/library_generate.png)
 
 This will internaly use the Subsystem node [Generate Audio Data](subsystem.md#generate-audio-data) to perform TTS. Please see [Generate Audio Data](subsystem.md#generate-audio-data) for more details.
+
+<br/>
 
 ## Audio Data to PCM Data
 
@@ -59,6 +67,8 @@ Transform the Audio float data into audio PCM data (not WAV file data, use [Audi
 
 **Returns**: `TArray<uint8>` - The PCM data
 
+<br/>
+
 ## Audio Data to WAV Data
 
 **C++ Function**: `static TArray<uint8> UVoiceMakerBPLibrary::ToWAVData(const FAudioGenerationResult& AudioData)`
@@ -73,6 +83,8 @@ Transform the Audio float data into a WAV format byte array. This includes the c
 
 **Returns**: `TArray<uint8>` - The WAV data
 
+<br/>
+
 ## Create SoundWave from AudioData
 
 **C++ Function**: `static USoundWaveProcedural* UVoiceMakerBPLibrary::CreateSoundWave(const FAudioGenerationResult& AudioData)`
@@ -86,6 +98,8 @@ Create a USoundWaveProcedural Object that can be used at runtime to play the aud
 | AudioData | const [Audio Generation Result](api_reference.md#audio-generation-result)& | - | The input [Audio Generation Result](api_reference.md#audio-generation-result) used to create and populate the Sound |
 
 **Returns**: `USoundWaveProcedural*` - The created SoundWave, or `nullptr` if an error occurred
+
+<br/>
 
 ## Save AudioData as SoundWave Asset
 
@@ -102,6 +116,8 @@ Create a USoundWaveProcedural Object that can be used at runtime to play the aud
 | ConflictResolution | [Asset Conflict Resolution](api_reference.md#asset-conflict-resolution) | - | Specifies how to handle cases where an asset with the same name already exists at the target path |
 
 **Returns**: `FString` - The final package name of the asset if saved successfully, or an empty string if the operation fails
+
+<br/>
 
 ## Show save file selection dialog
 

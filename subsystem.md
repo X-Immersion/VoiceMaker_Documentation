@@ -26,6 +26,10 @@
 ![Get Subsystem menu](res/subsystem_menu_get.png)
 ![Get Subsystem](res/subsystem_get.png)
 
+Get the VoiceMaker TTS Engine Subsystem
+
+<br/><br/>
+
 ## Init
 
 **C++ Function**: `void UVoiceMakerSubsystem::InitializeLocalTTS(FOnInitializeComplete OnInitializeComplete, const FOnErrorOccured& OnErrorOccured)`
@@ -41,6 +45,8 @@ Initialize the Local TTS engine with [project settings](api_reference.md#config)
 |------|------|---------------|-------------|
 | OnInitializeComplete | [On Initialize Complete](#on-initialize-complete) | - | Called with `initialized=true` after the initialization is done |
 | OnErrorOccured | const [On Error Occured](#on-error-occured)& | - | Called with `initialized=false` when the initialization failed |
+
+<br/><br/>
 
 ## Init (with settings)
 
@@ -61,6 +67,8 @@ Initialize the Local TTS engine with custom model files. This function loads the
 | OnInitializeComplete | [On Initialize Complete](#on-initialize-complete) | - | Called with `initialized=true` after the initialization is done |
 | OnErrorOccured | const [On Error Occured](#on-error-occured)& | - | Called with `initialized=false` when the initialization failed |
 
+<br/><br/>
+
 ## Deinitialize
 
 **C++ Function**: `void UVoiceMakerSubsystem::DeinitializeLocalTTS(FOnInitializeComplete OnDeinitializeComplete)`
@@ -76,6 +84,8 @@ Deinitialize the Local TTS engine.
 |------|------|---------------|-------------|
 | OnDeinitializeComplete | [On Initialize Complete](#on-initialize-complete) | - | Called with `initialized=false` after the deinitialization is done |
 
+<br/><br/>
+
 ## Is Initialized
 
 **C++ Function**: `bool UVoiceMakerSubsystem::IsInitialized() const`
@@ -85,6 +95,8 @@ Deinitialize the Local TTS engine.
 Check if the TTS system is initialized and ready for audio generation.
 
 **Returns**: `bool` - True if the system is initialized and ready to generate audio
+
+<br/><br/>
 
 ## Generate Audio Data
 
@@ -107,6 +119,8 @@ Generate audio data from text asynchronously. You can then use the following nod
 | OnComplete | [On Audio Data Generated Callback](#on-audio-data-generated-callback) | - | Callback executed when generation succeeds, with the generated [Audio Generation Result](api_reference.md#audio-generation-result) |
 | OnErrorOccured | const [On Error Occured](#on-error-occured)& | - | Callback executed when there was a generation error |
 
+<br/><br/>
+
 ## Get Available Voices
 
 **C++ Function**: `TArray<FString> UVoiceMakerSubsystem::GetAvailableVoices() const`
@@ -119,6 +133,8 @@ Get all available voice identifiers. Returns a list of all voice names that can 
 > This will return an empty array if the Subsystem is not initialized.
 
 **Returns**: `TArray<FString>` - Array of voice identifiers, i.e.: ["af_sarah", "am_adam", "bf_emma"]
+
+<br/><br/>
 
 ## Get Available Voices Info
 
@@ -133,6 +149,8 @@ Get detailed information about all available voices. Provides [structured inform
 
 **Returns**: `TArray<FVoiceInfo>` - Array of [Voice Info](api_reference.md#voice-info) structures
 
+<br/><br/>
+
 ## Is Voice Available
 
 **C++ Function**: `bool UVoiceMakerSubsystem::IsVoiceAvailable(const FString& VoiceName) const`
@@ -146,6 +164,8 @@ Check if a specific voice is available. Use this to validate voice names before 
 | VoiceName | `const FString&` | - | Voice identifier to check |
 
 **Returns**: `bool` - True if the voice is available for use
+
+<br/><br/>
 
 ## Get Voice Information
 
@@ -164,7 +184,11 @@ Get detailed information about a specific voice. Retrieves structured informatio
 
 **Returns**: [Voice Info](api_reference.md#voice-info) - `FVoiceInfo` structure containing voice details, or empty if not found
 
-## On Subsystem Error Occured
+<br/><br/>
+
+## Delegates
+
+### On Subsystem Error Occured
 
 **C++ Delegate**: `FOnSubsystemErrorOccured OnSubsystemErrorOccured`
 
@@ -176,7 +200,9 @@ Delegate called every time an error occurred on the subsystem.
 |------|------|-------------|
 | ErrorMessage | `const FString&` | The error message describing what went wrong |
 
-## On Subsystem Status Changed
+<br/>
+
+### On Subsystem Status Changed
 
 **C++ Delegate**: `FOnSubsystemStatusChanged OnSubsystemStatusChanged`
 
@@ -188,7 +214,9 @@ Delegate called every time the subsystem is initialized or deinitialized.
 |------|------|-------------|
 | bInitialized | `bool` | True if the subsystem was initialized, false if deinitialized |
 
-## On Initialize Complete
+<br/>
+
+### On Initialize Complete
 
 **C++ Delegate**: `FOnInitializeComplete`
 
@@ -200,7 +228,9 @@ Dynamic delegate called when initialization or deinitialization completes. Used 
 |------|------|-------------|
 | bInitialized | `bool` | True if initialization succeeded, false if it failed or was deinitialized |
 
-## On Audio Data Generated Callback
+<br/>
+
+### On Audio Data Generated Callback
 
 **C++ Delegate**: `FOnAudioDataGeneratedCallback`
 
@@ -212,7 +242,9 @@ Dynamic delegate called when audio generation completes successfully. Used with 
 |------|------|-------------|
 | AudioData | [Audio Generation Result](api_reference.md#audio-generation-result) | The generated FAudioGenerationResult containing audio samples and metadata |
 
-## On Error Occured
+<br/>
+
+### On Error Occured
 
 **C++ Delegate**: `FOnErrorOccured`
 

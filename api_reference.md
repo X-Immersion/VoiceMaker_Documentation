@@ -15,8 +15,9 @@
 **C++ Class**: `UVoiceMakerConfig`
 
 ![VoiceMaker Config](res/config_settings.png)
+![VoiceMaker Config Default](res/config_default.png)
 
-Main configuration class for the VoiceMaker plugin. This class extends UDeveloperSettings and provides project-wide settings for the TTS system.
+Main configuration class for the VoiceMaker plugin. This class extends `UDeveloperSettings` and provides project-wide settings for the TTS system.
 
 You can change the VoiceMaker config by going to *Edit > Project settings... > Plugins > VoiceMaker config*.
 
@@ -28,6 +29,8 @@ To initialize the TTS system with these settings, use [Init](subsystem.md#init) 
 | ModelPath | `FString` | `"Models/model.onnx"` | EditAnywhere | BlueprintReadOnly | Path to the ONNX model file |
 | VoicesPath | `FString` | `"Models/voices_flat.bin"` | EditAnywhere | BlueprintReadOnly | Path to the voices file |
 | ~~bUseGPUAcceleration~~ | `bool` | `false` | VisibleAnywhere | BlueprintReadOnly | Whether to use GPU acceleration (not yet supported) |
+
+<br/><br/>
 
 ## Structs
 
@@ -48,6 +51,8 @@ Voice information structure containing detailed voice metadata. Used with nodes 
 | LanguageCode | `FString` | `""` | EditAnywhere | BlueprintReadWrite | Voice language code |
 | Description | `FString` | `""` | EditAnywhere | BlueprintReadWrite | Voice description |
 
+<br/>
+
 ### Audio Generation Result
 
 **C++ Struct**: `FAudioGenerationResult`
@@ -63,6 +68,8 @@ Result structure containing generated audio data and metadata. Used with node [G
 | Duration | `float` | `0.0f` | EditAnywhere | BlueprintReadOnly | Duration of the audio in seconds |
 | ProcessingTime | `float` | `0.0f` | EditAnywhere | BlueprintReadOnly | Time taken to process the audio |
 | RealtimeFactor | `float` | `0.0f` | EditAnywhere | BlueprintReadOnly | Real-time factor (Duration / ProcessingTime) |
+
+<br/><br/>
 
 ## Enums
 
@@ -82,6 +89,8 @@ Enumeration for handling asset conflicts when saving SoundWave assets. Used with
 | Overwrite | When a SoundWave asset already exists, overwrite it |
 | CreateNew | When a SoundWave asset already exists, change the asset name and add a suffix like _0, _1, ... to it |
 | Cancel | When a SoundWave asset already exists, cancel the current save operation |
+
+<br/><br/>
 
 ## Classes
 

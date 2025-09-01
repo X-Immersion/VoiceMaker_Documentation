@@ -10,6 +10,8 @@ Welcome to the VoiceMaker Unreal Plugin documentation. This plugin provides loca
 - **Blueprint Integration**: Full Blueprint support with easy-to-use nodes
 - **Audio Format Support**: Generate PCM, WAV data, or SoundWave assets
 - **Asynchronous Processing**: Non-blocking audio generation with callback support
+- *(upcoming)* **GPU offload generation**: Use the GPU to generate higher quality voices with low latency
+- *(upcoming)* **Multiple architecture support**: Use the plugin with Linux and Mac, but also mobiles and consoles!
 
 ## Table of Contents
 
@@ -21,10 +23,10 @@ Welcome to the VoiceMaker Unreal Plugin documentation. This plugin provides loca
 - [API Reference](api_reference.md) - Complete API documentation
   - [Config](api_reference.md#config) - Configuration settings
   - [Structs](api_reference.md#structs) - Data structures
-    - [Voice Info](api_reference.md#fvoiceinfo)
-    - [Audio Generation Result](api_reference.md#faudiogenerationresult)
+    - [Voice Info](api_reference.md#voice-info)
+    - [Audio Generation Result](api_reference.md#audio-generation-result)
   - [Enums](api_reference.md#enums) - Enumeration types
-    - [Asset Conflict Resolution](api_reference.md#eassetconflictresolution) *(editor only)*
+    - [Asset Conflict Resolution](api_reference.md#asset-conflict-resolution) *(editor only)*
   - [Classes](api_reference.md#classes) - Main classes and their methods
     - [VoiceMakerSubsystem](subsystem.md) - Core TTS subsystem
       - [Init](subsystem.md#init)
@@ -38,9 +40,9 @@ Welcome to the VoiceMaker Unreal Plugin documentation. This plugin provides loca
       - [Get Voice Information](subsystem.md#get-voice-information)
       - [Delegate - On Subsystem Error Occured](subsystem.md#on-subsystem-error-occured)
       - [Delegate - On Subsystem Status Changed](subsystem.md#on-subsystem-status-changed)
-      - [Delegate - On Initialize Complete](subsystem.md#foninitializecomplete)
-      - [Delegate - On Audio Data Generated Callback](subsystem.md#fonaudiodatageneratedcallback)
-      - [Delegate - On Error Occured](subsystem.md#fonerroroccured)
+      - [Delegate - On Initialize Complete](subsystem.md#on-initialize-complete)
+      - [Delegate - On Audio Data Generated Callback](subsystem.md#on-audio-data-generated-callback)
+      - [Delegate - On Error Occured](subsystem.md#on-error-occured)
     - [VoiceMakerBPLibrary](bp_library.md) - Blueprint function library
       - [Initialize VoiceMaker Subsystem](bp_library.md#initialize-voicemaker-subsystem)
       - [Deinitialize VoiceMaker Subsystem](bp_library.md#deinitialize-voicemaker-subsystem)

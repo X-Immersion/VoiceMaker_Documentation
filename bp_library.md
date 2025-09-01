@@ -55,7 +55,7 @@ Transform the Audio float data into audio PCM data (not WAV file data, use [Audi
 
 | Name | Type | Default Value | Description |
 |------|------|---------------|-------------|
-| AudioData | const [FAudioGenerationResult](api_reference.md#faudiogenerationresult)& | - | The generated [FAudioGenerationResult](api_reference.md#faudiogenerationresult) to convert to PCM data |
+| AudioData | const [Audio Generation Result](api_reference.md#audio-generation-result)& | - | The generated [Audio Generation Result](api_reference.md#audio-generation-result) to convert to PCM data |
 
 **Returns**: `TArray<uint8>` - The PCM data
 
@@ -69,7 +69,7 @@ Transform the Audio float data into a WAV format byte array. This includes the c
 
 | Name | Type | Default Value | Description |
 |------|------|---------------|-------------|
-| AudioData | const [FAudioGenerationResult](api_reference.md#faudiogenerationresult)& | - | The generated [FAudioGenerationResult](api_reference.md#faudiogenerationresult) to convert to WAV data |
+| AudioData | const [Audio Generation Result](api_reference.md#audio-generation-result)& | - | The generated [Audio Generation Result](api_reference.md#audio-generation-result) to convert to WAV data |
 
 **Returns**: `TArray<uint8>` - The WAV data
 
@@ -79,13 +79,13 @@ Transform the Audio float data into a WAV format byte array. This includes the c
 
 ![Create SoundWave from AudioData](res/library_createsound.png)
 
-Create a USoundWaveProcedural UObject that can be used at runtime to play the audio.
+Create a USoundWaveProcedural Object that can be used at runtime to play the audio.
 
 | Name | Type | Default Value | Description |
 |------|------|---------------|-------------|
-| AudioData | const [FAudioGenerationResult](api_reference.md#faudiogenerationresult)& | - | The input [FAudioGenerationResult](api_reference.md#faudiogenerationresult) used to create and populate the Sound |
+| AudioData | const [Audio Generation Result](api_reference.md#audio-generation-result)& | - | The input [Audio Generation Result](api_reference.md#audio-generation-result) used to create and populate the Sound |
 
-**Returns**: `USoundWaveProcedural*` - The created SoundWave, or nullptr if an error occurred
+**Returns**: `USoundWaveProcedural*` - The created SoundWave, or `nullptr` if an error occurred
 
 ## Save AudioData as SoundWave Asset
 
@@ -98,8 +98,8 @@ Create a USoundWaveProcedural UObject that can be used at runtime to play the au
 | Name | Type | Default Value | Description |
 |------|------|---------------|-------------|
 | AssetPath | `const FString&` | - | The desired path for the asset to be saved. Must be a valid Unreal Engine asset path |
-| AudioData | const [FAudioGenerationResult](api_reference.md#faudiogenerationresult)& | - | The generated [FAudioGenerationResult](api_reference.md#faudiogenerationresult) to be saved as a SoundWave asset |
-| ConflictResolution | [EAssetConflictResolution](api_reference.md#eassetconflictresolution) | - | Specifies how to handle cases where an asset with the same name already exists at the target path |
+| AudioData | const [Audio Generation Result](api_reference.md#audio-generation-result)& | - | The generated [Audio Generation Result](api_reference.md#audio-generation-result) to be saved as a SoundWave asset |
+| ConflictResolution | [Asset Conflict Resolution](api_reference.md#asset-conflict-resolution) | - | Specifies how to handle cases where an asset with the same name already exists at the target path |
 
 **Returns**: `FString` - The final package name of the asset if saved successfully, or an empty string if the operation fails
 

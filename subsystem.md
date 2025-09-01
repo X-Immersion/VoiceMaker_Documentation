@@ -3,6 +3,7 @@
 [← Back to README](README.md) | [← Back to API Reference](api_reference.md)
 
 ## Table of Contents
+- [Get Voice Maker Subsystem](#get-voice-maker-subsystem)
 - [Init](#init)
 - [Init (with settings)](#init-with-settings)
 - [Deinitialize](#deinitialize)
@@ -14,9 +15,16 @@
 - [Get Voice Information](#get-voice-information)
 - [On Subsystem Error Occured](#on-subsystem-error-occured)
 - [On Subsystem Status Changed](#on-subsystem-status-changed)
-- [FOnInitializeComplete](#foninitializecomplete)
-- [FOnAudioDataGeneratedCallback](#fonaudiodatageneratedcallback)
-- [FOnErrorOccured](#fonerroroccured)
+- [On Initialize Complete](#on-initialize-complete)
+- [On Audio Data Generated Callback](#on-audio-data-generated-callback)
+- [On Error Occured](#on-error-occured)
+
+## Get Voice Maker Subsystem
+
+**C++ Code**: `GEngine->GetEngineSubsystem<UVoiceMakerSubsystem>()`
+
+![Get Subsystem menu](res/subsystem_menu_get.png)
+![Get Subsystem](res/subsystem_get.png)
 
 ## Init
 
@@ -31,8 +39,8 @@ Initialize the Local TTS engine with [project settings](api_reference.md#config)
 
 | Name | Type | Default Value | Description |
 |------|------|---------------|-------------|
-| OnInitializeComplete | [FOnInitializeComplete](#foninitializecomplete) | - | Called with `initialized=true` after the initialization is done |
-| OnErrorOccured | const [FOnErrorOccured](#fonerroroccured)& | - | Called with `initialized=false` when the initialization failed |
+| OnInitializeComplete | [On Initialize Complete](#on-initialize-complete) | - | Called with `initialized=true` after the initialization is done |
+| OnErrorOccured | const [On Error Occured](#on-error-occured)& | - | Called with `initialized=false` when the initialization failed |
 
 ## Init (with settings)
 
@@ -50,8 +58,8 @@ Initialize the Local TTS engine with custom model files. This function loads the
 | ModelPath | `const FString&` | - | Path to the ONNX model file. Leave blank to use config model path |
 | VoicesPath | `const FString&` | - | Path to the voices binary file. Leave blank to use config voice path |
 | ~~bUseGPU~~ | `bool` | `false` | Whether to enable GPU acceleration (requires CUDA-compatible hardware) **(not supported yet)** |
-| OnInitializeComplete | [FOnInitializeComplete](#foninitializecomplete) | - | Called with `initialized=true` after the initialization is done |
-| OnErrorOccured | const [FOnErrorOccured](#fonerroroccured)& | - | Called with `initialized=false` when the initialization failed |
+| OnInitializeComplete | [On Initialize Complete](#on-initialize-complete) | - | Called with `initialized=true` after the initialization is done |
+| OnErrorOccured | const [On Error Occured](#on-error-occured)& | - | Called with `initialized=false` when the initialization failed |
 
 ## Deinitialize
 
@@ -66,7 +74,7 @@ Deinitialize the Local TTS engine.
 
 | Name | Type | Default Value | Description |
 |------|------|---------------|-------------|
-| OnDeinitializeComplete | [FOnInitializeComplete](#foninitializecomplete) | - | Called with `initialized=false` after the deinitialization is done |
+| OnDeinitializeComplete | [On Initialize Complete](#on-initialize-complete) | - | Called with `initialized=false` after the deinitialization is done |
 
 ## Is Initialized
 
@@ -84,7 +92,7 @@ Check if the TTS system is initialized and ready for audio generation.
 
 ![Generate Audio Data](res/subsystem_generate.png)
 
-Generate audio data from text asynchronously. You can then use the following nodes with the [Audio Generation Result](api_reference.md#faudiogenerationresult):
+Generate audio data from text asynchronously. You can then use the following nodes with the [Audio Generation Result](api_reference.md#audio-generation-result):
 * [Audio Data to PCM Data](bp_library.md#audio-data-to-pcm-data)
 * [Audio Data to WAV Data](bp_library.md#audio-data-to-wav-data)
 * [Create SoundWave from AudioData](bp_library.md#create-soundwave-from-audiodata)
@@ -96,8 +104,8 @@ Generate audio data from text asynchronously. You can then use the following nod
 | VoiceName | `const FString&` | - | Voice identifier. This **must** be the voice full name, i.e.: `af_alloy`. Empty = default voice. See [available voices](voices.md) |
 | Speed | `float` | `1.0f` | Speech speed multiplier (0.5-2.0) |
 | Language | `const FString&` | - | Language code, i.e.: `en_us`. Empty = default language |
-| OnComplete | [FOnAudioDataGeneratedCallback](#fonaudiodatageneratedcallback) | - | Callback executed when generation succeeds, with the generated [FAudioGenerationResult](api_reference.md#faudiogenerationresult) |
-| OnErrorOccured | const [FOnErrorOccured](#fonerroroccured)& | - | Callback executed when there was a generation error |
+| OnComplete | [On Audio Data Generated Callback](#on-audio-data-generated-callback) | - | Callback executed when generation succeeds, with the generated [Audio Generation Result](api_reference.md#audio-generation-result) |
+| OnErrorOccured | const [On Error Occured](#on-error-occured)& | - | Callback executed when there was a generation error |
 
 ## Get Available Voices
 
@@ -107,17 +115,23 @@ Generate audio data from text asynchronously. You can then use the following nod
 
 Get all available voice identifiers. Returns a list of all voice names that can be used with the generation functions.
 
+> [!CAUTION]
+> This will return an empty array if the Subsystem is not initialized.
+
 **Returns**: `TArray<FString>` - Array of voice identifiers, i.e.: ["af_sarah", "am_adam", "bf_emma"]
 
 ## Get Available Voices Info
 
 **C++ Function**: `TArray<FVoiceInfo> UVoiceMakerSubsystem::GetAvailableVoicesInfo() const`
 
-![Get Available Voices Info](res/subsystem_getvoicesinfo.png)
+![Get Available Voices Info](res/subsystem_getvoiceinfo.png)
 
-Get detailed information about all available voices. Provides structured information about each voice including display names, gender, language, and descriptions.
+Get detailed information about all available voices. Provides [structured information](api_reference.md#voice-info) about each voice including display names, gender, language, and descriptions.
 
-**Returns**: `TArray<FVoiceInfo>` - Array of [FVoiceInfo](api_reference.md#fvoiceinfo) structures
+> [!CAUTION]
+> This will return an empty array if the Subsystem is not initialized.
+
+**Returns**: `TArray<FVoiceInfo>` - Array of [Voice Info](api_reference.md#voice-info) structures
 
 ## Is Voice Available
 
@@ -141,11 +155,14 @@ Check if a specific voice is available. Use this to validate voice names before 
 
 Get detailed information about a specific voice. Retrieves structured information about a specific voice by its identifier.
 
+> [!CAUTION]
+> This will return an empty voice if the Subsystem is not initialized.
+
 | Name | Type | Default Value | Description |
 |------|------|---------------|-------------|
 | VoiceName | `const FString&` | - | Voice identifier to query |
 
-**Returns**: [FVoiceInfo](api_reference.md#fvoiceinfo) - FVoiceInfo structure containing voice details, or empty if not found
+**Returns**: [Voice Info](api_reference.md#voice-info) - `FVoiceInfo` structure containing voice details, or empty if not found
 
 ## On Subsystem Error Occured
 
@@ -171,37 +188,37 @@ Delegate called every time the subsystem is initialized or deinitialized.
 |------|------|-------------|
 | bInitialized | `bool` | True if the subsystem was initialized, false if deinitialized |
 
-## FOnInitializeComplete
+## On Initialize Complete
 
 **C++ Delegate**: `FOnInitializeComplete`
 
 ![On Initialize Complete](res/delegate_initcomplete.png)
 
-Dynamic delegate called when initialization or deinitialization completes.
+Dynamic delegate called when initialization or deinitialization completes. Used with nodes [Init](#init), [Init (with settings)](#init-with-settings) and [Deinitialize](#deinitialize).
 
 | Name | Type | Description |
 |------|------|-------------|
 | bInitialized | `bool` | True if initialization succeeded, false if it failed or was deinitialized |
 
-## FOnAudioDataGeneratedCallback
+## On Audio Data Generated Callback
 
 **C++ Delegate**: `FOnAudioDataGeneratedCallback`
 
 ![On Audio Data Generated](res/delegate_audiogenerated.png)
 
-Dynamic delegate called when audio generation completes successfully.
+Dynamic delegate called when audio generation completes successfully. Used with node [Generate Audio Data](#generate-audio-data).
 
 | Name | Type | Description |
 |------|------|-------------|
-| AudioData | [FAudioGenerationResult](api_reference.md#faudiogenerationresult) | The generated FAudioGenerationResult containing audio samples and metadata |
+| AudioData | [Audio Generation Result](api_reference.md#audio-generation-result) | The generated FAudioGenerationResult containing audio samples and metadata |
 
-## FOnErrorOccured
+## On Error Occured
 
 **C++ Delegate**: `FOnErrorOccured`
 
 ![On Error Occured](res/delegate_error.png)
 
-Dynamic delegate called when an error occurs during TTS operations.
+Dynamic delegate called when an error occurs during TTS operations. Used with nodes [Init](#init), [Init (with settings)](#init-with-settings) and [Generate Audio Data](#generate-audio-data).
 
 | Name | Type | Description |
 |------|------|-------------|

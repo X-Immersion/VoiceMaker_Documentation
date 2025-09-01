@@ -10,7 +10,7 @@
 
 ## Config
 
-### UVoiceMakerConfig
+### Voice Maker Config
 
 **C++ Class**: `UVoiceMakerConfig`
 
@@ -31,13 +31,13 @@ To initialize the TTS system with these settings, use [Init](subsystem.md#init) 
 
 ## Structs
 
-### FVoiceInfo
+### Voice Info
 
 **C++ Struct**: `FVoiceInfo`
 
 ![Voice Info Struct](res/struct_voiceinfo.png)
 
-Voice information structure containing detailed voice metadata.
+Voice information structure containing detailed voice metadata. Used with nodes [Get Available Voices Info](subsystem.md#get-available-voices-info) and [Get Voice Information](subsystem.md#get-voice-information).
 
 | Name | Type | Default Value | Editor Visibility | Blueprint Visibility | Description |
 |------|------|---------------|------------------|---------------------|-------------|
@@ -48,13 +48,13 @@ Voice information structure containing detailed voice metadata.
 | LanguageCode | `FString` | `""` | EditAnywhere | BlueprintReadWrite | Voice language code |
 | Description | `FString` | `""` | EditAnywhere | BlueprintReadWrite | Voice description |
 
-### FAudioGenerationResult
+### Audio Generation Result
 
 **C++ Struct**: `FAudioGenerationResult`
 
 ![Audio Generation Result](res/struct_audioresult.png)
 
-Result structure containing generated audio data and metadata.
+Result structure containing generated audio data and metadata. Used with node [Generate Audio Data](subsystem.md#generate-audio-data) through delegate [On Audio Data Generated Callback](subsystem.md#on-audio-data-generated-callback).
 
 | Name | Type | Default Value | Editor Visibility | Blueprint Visibility | Description |
 |------|------|---------------|------------------|---------------------|-------------|
@@ -66,7 +66,7 @@ Result structure containing generated audio data and metadata.
 
 ## Enums
 
-### EAssetConflictResolution
+### Asset Conflict Resolution
 
 **C++ Enum**: `EAssetConflictResolution`
 
@@ -74,11 +74,11 @@ Result structure containing generated audio data and metadata.
 
 ***Editor only! Do not use at runtime***
 
-Enumeration for handling asset conflicts when saving SoundWave assets.
+Enumeration for handling asset conflicts when saving SoundWave assets. Used with node [Save Audio Data as SoundWave Asset](bp_library.md#save-audiodata-as-soundwave-asset).
 
 | Name | Description |
 |------|-------------|
-| Ask | When a SoundWave asset already exists, open a message dialog to ask the user what to do |
+| Ask *(default)* | When a SoundWave asset already exists, open a message dialog to ask the user what to do |
 | Overwrite | When a SoundWave asset already exists, overwrite it |
 | CreateNew | When a SoundWave asset already exists, change the asset name and add a suffix like _0, _1, ... to it |
 | Cancel | When a SoundWave asset already exists, cancel the current save operation |

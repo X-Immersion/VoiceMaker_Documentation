@@ -8,11 +8,13 @@
 - [Enums](#enums)
 - [Classes](#classes)
 
+<br/>
+
 ## Config
 
 ### Voice Maker Config
 
-**C++ Class**: `UVoiceMakerConfig`
+**C++ Class**: `class UVoiceMakerConfig : public UDeveloperSettings`
 
 ![VoiceMaker Config](res/config_settings.png)
 ![VoiceMaker Config Default](res/config_default.png)
@@ -30,13 +32,13 @@ To initialize the TTS system with these settings, use [Init](subsystem.md#init) 
 | VoicesPath | `FString` | `"Models/voices_flat.bin"` | EditAnywhere | BlueprintReadOnly | Path to the voices file |
 | ~~bUseGPUAcceleration~~ | `bool` | `false` | VisibleAnywhere | BlueprintReadOnly | Whether to use GPU acceleration (not yet supported) |
 
-<br/><br/>
+<br/>
 
 ## Structs
 
 ### Voice Info
 
-**C++ Struct**: `FVoiceInfo`
+**C++ Struct**: `struct FVoiceInfo`
 
 ![Voice Info Struct](res/struct_voiceinfo.png)
 
@@ -55,7 +57,7 @@ Voice information structure containing detailed voice metadata. Used with nodes 
 
 ### Audio Generation Result
 
-**C++ Struct**: `FAudioGenerationResult`
+**C++ Struct**: `struct FAudioGenerationResult`
 
 ![Audio Generation Result](res/struct_audioresult.png)
 
@@ -69,17 +71,18 @@ Result structure containing generated audio data and metadata. Used with node [G
 | ProcessingTime | `float` | `0.0f` | EditAnywhere | BlueprintReadOnly | Time taken to process the audio |
 | RealtimeFactor | `float` | `0.0f` | EditAnywhere | BlueprintReadOnly | Real-time factor (Duration / ProcessingTime) |
 
-<br/><br/>
+<br/>
 
 ## Enums
 
 ### Asset Conflict Resolution
 
-**C++ Enum**: `EAssetConflictResolution`
+**C++ Enum**: `enum class EAssetConflictResolution : uint8`
 
 ![Asset Conflict Resolution](res/enum_conflict.png)
 
-***Editor only! Do not use at runtime***
+> [!CAUTION]
+> **Editor only! Do not use at runtime**
 
 Enumeration for handling asset conflicts when saving SoundWave assets. Used with node [Save Audio Data as SoundWave Asset](bp_library.md#save-audiodata-as-soundwave-asset).
 
@@ -90,7 +93,7 @@ Enumeration for handling asset conflicts when saving SoundWave assets. Used with
 | CreateNew | When a SoundWave asset already exists, change the asset name and add a suffix like _0, _1, ... to it |
 | Cancel | When a SoundWave asset already exists, cancel the current save operation |
 
-<br/><br/>
+<br/>
 
 ## Classes
 

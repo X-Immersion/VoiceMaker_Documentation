@@ -19,6 +19,8 @@
 - [On Audio Data Generated Callback](#on-audio-data-generated-callback)
 - [On Error Occured](#on-error-occured)
 
+<br/>
+
 ## Get Voice Maker Subsystem
 
 **C++ Code**: `GEngine->GetEngineSubsystem<UVoiceMakerSubsystem>()`
@@ -28,7 +30,7 @@
 
 Get the VoiceMaker TTS Engine Subsystem
 
-<br/><br/>
+<br/>
 
 ## Init
 
@@ -46,7 +48,7 @@ Initialize the Local TTS engine with [project settings](api_reference.md#config)
 | OnInitializeComplete | [On Initialize Complete](#on-initialize-complete) | - | Called with `initialized=true` after the initialization is done |
 | OnErrorOccured | const [On Error Occured](#on-error-occured)& | - | Called with `initialized=false` when the initialization failed |
 
-<br/><br/>
+<br/>
 
 ## Init (with settings)
 
@@ -67,7 +69,7 @@ Initialize the Local TTS engine with custom model files. This function loads the
 | OnInitializeComplete | [On Initialize Complete](#on-initialize-complete) | - | Called with `initialized=true` after the initialization is done |
 | OnErrorOccured | const [On Error Occured](#on-error-occured)& | - | Called with `initialized=false` when the initialization failed |
 
-<br/><br/>
+<br/>
 
 ## Deinitialize
 
@@ -84,7 +86,7 @@ Deinitialize the Local TTS engine.
 |------|------|---------------|-------------|
 | OnDeinitializeComplete | [On Initialize Complete](#on-initialize-complete) | - | Called with `initialized=false` after the deinitialization is done |
 
-<br/><br/>
+<br/>
 
 ## Is Initialized
 
@@ -94,9 +96,9 @@ Deinitialize the Local TTS engine.
 
 Check if the TTS system is initialized and ready for audio generation.
 
-**Returns**: `bool` - True if the system is initialized and ready to generate audio
+**👉 Returns**: `bool` - True if the system is initialized and ready to generate audio
 
-<br/><br/>
+<br/>
 
 ## Generate Audio Data
 
@@ -104,7 +106,7 @@ Check if the TTS system is initialized and ready for audio generation.
 
 ![Generate Audio Data](res/subsystem_generate.png)
 
-Generate audio data from text asynchronously. You can then use the following nodes with the [Audio Generation Result](api_reference.md#audio-generation-result):
+Generate audio data from text asynchronously. You can then use the following nodes with the [Audio Data](api_reference.md#audio-generation-result):
 * [Audio Data to PCM Data](bp_library.md#audio-data-to-pcm-data)
 * [Audio Data to WAV Data](bp_library.md#audio-data-to-wav-data)
 * [Create SoundWave from AudioData](bp_library.md#create-soundwave-from-audiodata)
@@ -119,7 +121,7 @@ Generate audio data from text asynchronously. You can then use the following nod
 | OnComplete | [On Audio Data Generated Callback](#on-audio-data-generated-callback) | - | Callback executed when generation succeeds, with the generated [Audio Generation Result](api_reference.md#audio-generation-result) |
 | OnErrorOccured | const [On Error Occured](#on-error-occured)& | - | Callback executed when there was a generation error |
 
-<br/><br/>
+<br/>
 
 ## Get Available Voices
 
@@ -132,9 +134,9 @@ Get all available voice identifiers. Returns a list of all voice names that can 
 > [!CAUTION]
 > This will return an empty array if the Subsystem is not initialized.
 
-**Returns**: `TArray<FString>` - Array of voice identifiers, i.e.: ["af_sarah", "am_adam", "bf_emma"]
+**👉 Returns**: `TArray<FString>` - Array of voice identifiers, i.e.: ["af_sarah", "am_adam", "bf_emma"]
 
-<br/><br/>
+<br/>
 
 ## Get Available Voices Info
 
@@ -147,9 +149,9 @@ Get detailed information about all available voices. Provides [structured inform
 > [!CAUTION]
 > This will return an empty array if the Subsystem is not initialized.
 
-**Returns**: `TArray<FVoiceInfo>` - Array of [Voice Info](api_reference.md#voice-info) structures
+**👉 Returns**: `TArray<FVoiceInfo>` - Array of [Voice Info](api_reference.md#voice-info) structures
 
-<br/><br/>
+<br/>
 
 ## Is Voice Available
 
@@ -163,9 +165,9 @@ Check if a specific voice is available. Use this to validate voice names before 
 |------|------|---------------|-------------|
 | VoiceName | `const FString&` | - | Voice identifier to check |
 
-**Returns**: `bool` - True if the voice is available for use
+**👉 Returns**: `bool` - True if the voice is available for use
 
-<br/><br/>
+<br/>
 
 ## Get Voice Information
 
@@ -182,15 +184,15 @@ Get detailed information about a specific voice. Retrieves structured informatio
 |------|------|---------------|-------------|
 | VoiceName | `const FString&` | - | Voice identifier to query |
 
-**Returns**: [Voice Info](api_reference.md#voice-info) - `FVoiceInfo` structure containing voice details, or empty if not found
+**👉 Returns**: [Voice Info](api_reference.md#voice-info) - `FVoiceInfo` structure containing voice details, or empty if not found
 
-<br/><br/>
+<br/>
 
 ## Delegates
 
 ### On Subsystem Error Occured
 
-**C++ Delegate**: `FOnSubsystemErrorOccured OnSubsystemErrorOccured`
+**C++ Delegate**: `FOnSubsystemErrorOccured UVoiceMakerSubsystem::OnSubsystemErrorOccured`
 
 ![On Subsystem Error Occured](res/subsystem_onerror.png)
 
@@ -204,7 +206,7 @@ Delegate called every time an error occurred on the subsystem.
 
 ### On Subsystem Status Changed
 
-**C++ Delegate**: `FOnSubsystemStatusChanged OnSubsystemStatusChanged`
+**C++ Delegate**: `FOnSubsystemStatusChanged UVoiceMakerSubsystem::OnSubsystemStatusChanged`
 
 ![On Subsystem Status Changed](res/subsystem_onstatuschanged.png)
 

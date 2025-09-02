@@ -65,7 +65,7 @@ Transform the Audio float data into audio PCM data (not WAV file data, use [Audi
 |------|------|---------------|-------------|
 | AudioData | const [Audio Generation Result](api_reference.md#audio-generation-result)& | - | The generated [Audio Generation Result](api_reference.md#audio-generation-result) to convert to PCM data |
 
-**Returns**: `TArray<uint8>` - The PCM data
+**👉 Returns**: `TArray<uint8>` - The PCM data bytes
 
 <br/>
 
@@ -81,7 +81,7 @@ Transform the Audio float data into a WAV format byte array. This includes the c
 |------|------|---------------|-------------|
 | AudioData | const [Audio Generation Result](api_reference.md#audio-generation-result)& | - | The generated [Audio Generation Result](api_reference.md#audio-generation-result) to convert to WAV data |
 
-**Returns**: `TArray<uint8>` - The WAV data
+**👉 Returns**: `TArray<uint8>` - The WAV data bytes
 
 <br/>
 
@@ -97,7 +97,7 @@ Create a USoundWaveProcedural Object that can be used at runtime to play the aud
 |------|------|---------------|-------------|
 | AudioData | const [Audio Generation Result](api_reference.md#audio-generation-result)& | - | The input [Audio Generation Result](api_reference.md#audio-generation-result) used to create and populate the Sound |
 
-**Returns**: `USoundWaveProcedural*` - The created SoundWave, or `nullptr` if an error occurred
+**👉 Returns**: `USoundWaveProcedural*` - The created SoundWave, or `nullptr` if an error occurred
 
 <br/>
 
@@ -115,7 +115,7 @@ Create a USoundWaveProcedural Object that can be used at runtime to play the aud
 | AudioData | const [Audio Generation Result](api_reference.md#audio-generation-result)& | - | The generated [Audio Generation Result](api_reference.md#audio-generation-result) to be saved as a SoundWave asset |
 | ConflictResolution | [Asset Conflict Resolution](api_reference.md#asset-conflict-resolution) | - | Specifies how to handle cases where an asset with the same name already exists at the target path |
 
-**Returns**: `FString` - The final package name of the asset if saved successfully, or an empty string if the operation fails
+**👉 Returns**: `FString` - The final package name of the asset if saved successfully, or an empty string if the operation fails
 
 <br/>
 
@@ -131,4 +131,4 @@ Create a USoundWaveProcedural Object that can be used at runtime to play the aud
 |------|------|---------------|-------------|
 | SelectedPath | `FString&` | - | A reference to a string that will be updated with the path selected by the user if the dialog succeeds |
 
-**Returns**: `bool` - True if a valid save location was selected by the user, false otherwise
+**👉 Returns**: `bool` - True if a valid save location was selected by the user, false otherwise

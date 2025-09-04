@@ -15,20 +15,20 @@ Welcome to the VoiceMaker Unreal Plugin documentation. This plugin provides loca
 
 ## Table of Contents
 
-- [Voices](voices.md) - Available voices and their characteristics
-- [Quickstart](quickstart.md) - Getting started with the plugin
+- [Voices](voices.md) - **Available voices and their characteristics**
+- [Quickstart](quickstart.md) - **Getting started with the plugin**
   - [How to install the plugin through Fab and Epic Games launcher](quickstart.md#installation)
   - [How to use the plugin in editor (pre-generate TTS)](quickstart.md#editor-usage)
   - [How to use the plugin at runtime (runtime generated TTS)](quickstart.md#runtime-usage)
-- [API Reference](api_reference.md) - Complete API documentation
-  - [Config](api_reference.md#config) - Configuration settings
-  - [Structs](api_reference.md#structs) - Data structures
+- [API Reference](api_reference.md) - **Complete API documentation**
+  - [Config](api_reference.md#config)
+  - [Structs](api_reference.md#structs)
     - [Voice Info](api_reference.md#voice-info)
     - [Audio Generation Result](api_reference.md#audio-generation-result)
-  - [Enums](api_reference.md#enums) - Enumeration types
+  - [Enums](api_reference.md#enums)
     - [Asset Conflict Resolution](api_reference.md#asset-conflict-resolution) *(editor only)*
-  - [Classes](api_reference.md#classes) - Main classes and their methods
-    - [VoiceMakerSubsystem](subsystem.md) - Core TTS subsystem
+  - [Classes](api_reference.md#classes) - **Main classes and their methods**
+    - [VoiceMakerSubsystem](subsystem.md) - **Core TTS subsystem**
       - [Init](subsystem.md#init)
       - [Init (with settings)](subsystem.md#init-with-settings)
       - [Deinitialize](subsystem.md#deinitialize)
@@ -43,7 +43,7 @@ Welcome to the VoiceMaker Unreal Plugin documentation. This plugin provides loca
       - [Delegate - On Initialize Complete](subsystem.md#on-initialize-complete)
       - [Delegate - On Audio Data Generated Callback](subsystem.md#on-audio-data-generated-callback)
       - [Delegate - On Error Occured](subsystem.md#on-error-occured)
-    - [VoiceMakerBPLibrary](bp_library.md) - Blueprint function library
+    - [VoiceMakerBPLibrary](bp_library.md) - **Blueprint function library**
       - [Initialize VoiceMaker Subsystem](bp_library.md#initialize-voicemaker-subsystem)
       - [Deinitialize VoiceMaker Subsystem](bp_library.md#deinitialize-voicemaker-subsystem)
       - [Is VoiceMaker Subsystem Initialized](bp_library.md#is-voicemaker-subsystem-initialized) *(pure)*

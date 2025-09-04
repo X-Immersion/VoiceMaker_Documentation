@@ -93,14 +93,14 @@ When VoiceMaker is initialized, you can use the node [Generate Audio Data](bp_li
 
 ![VoiceMaker Generate](/res/usage_runtime_generate.png)
 
-> ![CAUTION]
+> [!CAUTION]
 > If you put the voice display name (like *alloy* or *Lewis*) or if you put the verbose language (like *English* or *french*), it will be ignored and the default voice/language will be used instead, leading to likely unwanted results.
 
 Once you have generated the Audio samples, you can use the nodes [Create SoundWave from AudioData](bp_library.md#create-soundwave-from-audiodata) / [AudioData to PCM Data](bp_library.md#audio-data-to-pcm-data) / [AudioData to WAV Data](bp_library#audio-data-to-wav-data) in order to use and play the generated samples. In Editor Utility Blueprints, you can also use [Save AudioData as SoundWave Asset](bp_library.md#save-audiodata-as-soundwave-asset).
 
 ![VoiceMaker AudioData](/res/usage_runtime_audiodata.png)
 
-> ![TIP]
+> [!TIP]
 > If you want to play the SoundWave spatialised in 3D, you can add an Audio Component to your actor and then use the nodes *Set Sound* followed by *Play*.
 > ![VoiceMaker SoundWave](/res/usage_runtime_soundwave.png)
 

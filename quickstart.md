@@ -35,6 +35,7 @@ Once you have installed and enabled the plugin, the VoiceMaker icon should appea
 
 > [!NOTE]
 > You can also open the VoiceMaker editor Window by going to the menu *Help > VoiceMaker*
+> 
 > ![VoiceMaker icon button](/res/usage_editor_button_2.png)
 
 Here are some explanations about the editor window:

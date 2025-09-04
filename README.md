@@ -27,7 +27,7 @@ Welcome to the VoiceMaker Unreal Plugin documentation. This plugin provides loca
     - [Audio Generation Result](api_reference.md#audio-generation-result)
   - [Enums](api_reference.md#enums)
     - [Asset Conflict Resolution](api_reference.md#asset-conflict-resolution) *(editor only)*
-  - [Classes](api_reference.md#classes) - **Main classes and their methods**
+  - [Classes](api_reference.md#classes)
     - [VoiceMakerSubsystem](subsystem.md) - **Core TTS subsystem**
       - [Init](subsystem.md#init)
       - [Init (with settings)](subsystem.md#init-with-settings)

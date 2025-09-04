@@ -51,9 +51,6 @@ Here are some explanations about the editor window:
 > [!NOTE]
 > The ![red box](https://placehold.co/10x10/ff4927/ff4927) <b style="color: #FF4927">Text parameter</b> does only handle latin alphabet yet. Other alphabets such as Japenese, Chinese, Hindi, Arabic, ... alphabets will be added in future updates. 
 
-> [!NOTE]
-> The ![blue box](https://placehold.co/10x10/27d3f5/27d3f5) <b style="color: #27D3F5">Speed parameter</b> label right to the slider is not updated in UE 5.0-5.5. This is only a visual bug as the correct speed slider value will be used for the generation. It will be fixed with future update.
-
 Once you have set up every parameter, click the ***Generate audio*** button. A new SoundWave Asset will be automatically saved at the destination location.
 
 ![VoiceMaker editor generation](/res/usage_editor_result.png)
@@ -89,7 +86,7 @@ Prior to using any VoiceMaker feature, we must ensure that the VoiceMaker subsys
 
 ![VoiceMaker init](res/usage_runtime_init.png)
 
-When VoiceMaker is initialized, you can use the node [Generate Audio Data](bp_library.md#generate-audio-data) in order to perform TTS. The *Voice name* pin must be the VoiceMaker Speaker full name, i.e.: *af_alloy, bm_lewis, if_sara, ....* [List of available speakers](voices.md). The *Language* pin must be the VoiceMaker language code, i.e.: *en-us, fr, it, ...*. You can also use the nodes [Get available Voices](subsystem.md#get-available-voices) and [Get Available Voices info](subsystem.md#get-available-voices-info) to retrieve the speaker list and information.
+When VoiceMaker is initialized, you can use the node [Generate Audio Data](bp_library.md#generate-audio-data) in order to perform TTS. The *Voice name* pin must be the VoiceMaker Speaker **Full name**, i.e.: *af_alloy, bm_lewis, if_sara, ....* [List of available speakers](voices.md). The *Language* pin must be the VoiceMaker **Language code**, i.e.: *en-us, fr, it, ...*. You can also use the nodes [Get available Voices](subsystem.md#get-available-voices) and [Get Available Voices info](subsystem.md#get-available-voices-info) to retrieve the speaker list and information.
 
 ![VoiceMaker Generate](/res/usage_runtime_generate.png)
 
@@ -101,7 +98,7 @@ Once you have generated the Audio samples, you can use the nodes [Create SoundWa
 ![VoiceMaker AudioData](/res/usage_runtime_audiodata.png)
 
 > [!TIP]
-> If you want to play the SoundWave spatialised in 3D, you can add an Audio Component to your actor and then use the nodes *Set Sound* followed by *Play*.
+> If you want to play the SoundWave spatialized in 3D, you can add an Audio Component to your actor and then use the nodes *Set Sound* followed by *Play*.
 > ![VoiceMaker SoundWave](/res/usage_runtime_soundwave.png)
 
 

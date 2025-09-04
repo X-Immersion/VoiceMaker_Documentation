@@ -1,4 +1,4 @@
-en-us *(English (American) 🇺🇸)*# Voices
+# Voices
 
 [← Back to README](README.md)
 

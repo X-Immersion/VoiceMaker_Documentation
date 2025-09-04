@@ -142,7 +142,7 @@ Get all available voice identifiers. Returns a list of all voice names that can 
 
 **C++ Function**: `TArray<FVoiceInfo> UVoiceMakerSubsystem::GetAvailableVoicesInfo() const`
 
-![Get Available Voices Info](res/subsystem_getvoiceinfo.png)
+![Get Available Voices Info](res/subsystem_getavailablevoiceinfo.png)
 
 Get detailed information about all available voices. Provides [structured information](api_reference.md#voice-info) about each voice including display names, gender, language, and descriptions.
 

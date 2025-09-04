@@ -88,4 +88,20 @@ Prior to using any VoiceMaker feature, we must ensure that the VoiceMaker subsys
 
 ![VoiceMaker init](res/usage_runtime_init.png)
 
-When VoiceMaker is initialized, you can use the node [Generate Audio Data](bp_library.md#generate-audio-data)
+When VoiceMaker is initialized, you can use the node [Generate Audio Data](bp_library.md#generate-audio-data) in order to perform TTS. The *Voice name* pin must be the VoiceMaker Speaker full name, i.e.: *af_alloy, bm_lewis, if_sara, ....* [List of available speakers](voices.md). The *Language* pin must be the VoiceMaker language code, i.e.: *en-us, fr, it, ...*. You can also use the nodes [Get available Voices](subsystem.md#get-available-voices) and [Get Available Voices info](subsystem.md#get-available-voices-info) to retrieve the speaker list and information.
+
+![VoiceMaker Generate](/res/usage_runtime_generate.png)
+
+> ![CAUTION]
+> If you put the voice display name (like *alloy* or *Lewis*) or if you put the verbose language (like *English* or *french*), it will be ignored and the default voice/language will be used instead, leading to likely unwanted results.
+
+Once you have generated the Audio samples, you can use the nodes [Create SoundWave from AudioData](bp_library.md#create-soundwave-from-audiodata) / [AudioData to PCM Data](bp_library.md#audio-data-to-pcm-data) / [AudioData to WAV Data](bp_library#audio-data-to-wav-data) in order to use and play the generated samples. In Editor Utility Blueprints, you can also use [Save AudioData as SoundWave Asset](bp_library.md#save-audiodata-as-soundwave-asset).
+
+![VoiceMaker AudioData](/res/usage_runtime_audiodata.png)
+
+> ![TIP]
+> If you want to play the SoundWave spatialised in 3D, you can add an Audio Component to your actor and then use the nodes *Set Sound* followed by *Play*.
+> ![VoiceMaker SoundWave](/res/usage_runtime_soundwave.png)
+
+
+*Optional:* When you don't need to perform TTS for a while and want to gain some RAM, use the node [Deinitialize VoiceMaker Subsystem](bp_library#deinitialize-voicemaker-subsystem) in order to free the model from memory. If you do so, you ***MUST*** initialize VoiceMaker back prior to use any of the its functions. 
